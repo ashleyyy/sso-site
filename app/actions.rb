@@ -33,7 +33,8 @@ end
 
 post '/signup' do
     @user = User.new
-    @user.username = params[:username]
+    @user.first_name = params[:first_name]
+    @user.last_name = params[:last_name]
     @user.email = params[:email]
     @user.password = params[:password]
 
@@ -52,7 +53,7 @@ before '/user/:id' do
 end
 
 get '/user/:id' do
-    
+
     @show_user = User.find(params[:id])
     erb(:"/users/show")
 

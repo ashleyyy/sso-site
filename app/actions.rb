@@ -1,3 +1,5 @@
+require_relative 'payload'
+
 helpers do
     def logged_in?
         if session[:user_id]
@@ -66,7 +68,7 @@ post '/login' do
 
     if @user.password == params[:password]
         session[:user_id] = @user.id
-        redirect '/'
+        redirect thinkific_sso_url(generate_payload)
     else
         redirect '/'
     end

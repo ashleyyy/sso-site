@@ -43,7 +43,7 @@ post '/signup' do
     if @user.save
         @user = User.find_by_email(params[:email])
         session[:user_id] = @user.id
-        redirect '/'
+        redirect thinkific_sso_url(generate_payload)
     else
         erb :index
     end
@@ -78,6 +78,7 @@ end
 
 get '/home' do
   erb :home
+    # "GET" https://api.thinkific.com/api/public/v1/enrollments/8605907 -H "X-Auth-API-Key: f71cb2f6b17633fc1295e2c0855fd0f7" -H "X-Auth-Subdomain: ashleyyy" --data "query[user_id]=2619693"
 end
 
 get '/logout' do

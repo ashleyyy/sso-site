@@ -1,18 +1,18 @@
-<h1>Snappy title here!</h1>
-
 <% if logged_in? %>
-    <h2> Welcome <%= user.first_name %>! </h2>
-    <!-- <a href="/posts">Posts</a>
-    <a href="/posts/new">New Post</a> -->
-    <form action='/logout' method="get">
-        <input name="submit" type="submit" value="Log Out"/>
-    </form>
+
+    <section class="login">
+    	<div class="titulo"><h2> Welcome <%= user.first_name %>! </h2></div>
+    	<form action='/logout' method="get">
+            <input name="submit" type="submit" value="Log Out" class="enviar">
+        </form>
+    </section>
+
 <% else %>
 
 <%= erb(:"forms/login_form") %>
 
 <br/>
-
-<a href="/signup">Sign Up</a>
+<!--
+<a href="/signup">Sign Up</a> -->
 
 <% end %>

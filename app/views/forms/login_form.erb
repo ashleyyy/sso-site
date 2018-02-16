@@ -1,10 +1,14 @@
-<form action='/login' method="post">
-<label for="email">Email</label>
-<input name="email" type="text" placeholder="Email Address"/>
 
-<label for="password">Password</label>
-<input name="password" type="password" placeholder="Password"/>
-
-<input name="submit" type="submit" value="Submit"/>
-
-</form>
+<section class="login">
+	<div class="titulo">Login</div>
+	<form action='/login' method="post">
+    	<input type="text" name="email" placeholder="Email Address" data-icon="U">
+        <input type="password" name="password" placeholder="Password" data-icon="x">
+        <div class="olvido">
+          <div class="olvido">
+            <div class="col"><a href="/signup" title="Ver Carásteres">Register</a></div>
+              <!-- <div class="col"><a href="#" title="Recuperar Password">Forgot Password?</a></div> -->
+        </div>
+        <input name="submit" type="submit" value="Log In" class="enviar">
+    </form>
+</section>

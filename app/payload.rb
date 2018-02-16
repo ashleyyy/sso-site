@@ -22,6 +22,7 @@ end
 def thinkific_sso_url(payload)
   url = "http://#{THINKIFIC_SUBDOMAIN}.thinkific.com/api/sso/v2/sso/jwt?jwt=#{payload}"
   # url = "http://#{THINKIFIC_SUBDOMAIN}.thinkific-staging.com/sso/jwt?jwt=#{payload}"
-  url += "&return_to=http://localhost:9393/home"
+  # url += "&return_to=http://localhost:9393/home"
+  url += "&return_to=https://yoursite.thinkific.com/account"
   # url += "&error_url=#{URI.escape(params["error_url"])}" unless params["error_url"].nil?
 end

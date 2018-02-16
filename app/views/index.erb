@@ -1,9 +1,9 @@
-<h1>Home Page</h1>
+<h1>Snappy title here!</h1>
 
 <% if logged_in? %>
     <h2> Welcome <%= user.first_name %>! </h2>
-    <a href="/posts">Posts</a>
-    <a href="/posts/new">New Post</a>
+    <!-- <a href="/posts">Posts</a>
+    <a href="/posts/new">New Post</a> -->
     <form action='/logout' method="get">
         <input name="submit" type="submit" value="Log Out"/>
     </form>

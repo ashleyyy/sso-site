@@ -75,66 +75,71 @@ post '/login' do
 
 end
 
+
+get '/home' do
+  erb :home
+end
+
 get '/logout' do
     session[:user_id] = nil
     redirect '/'
 end
 
-
-get '/posts' do
-
-    #show all posts
-    @posts = Post.all()
-    erb(:"/posts/show")
-
-end
-
-get '/posts/:id' do
-
-    #show single post by id
-    @show_post = Post.find(params[:id])
-    erb(:"/posts/show")
-
-end
-
-get '/posts/new' do
-
-    #create a new post
-    erb(:"/posts/new")
-
-end
-
-get '/posts/:id/edit' do
-
-    #show edit for for a post by id
-    @edit_post = Post.find(params[:id])
-    erb(:"/posts/edit")
-
-end
-
-get '/posts/:id/delete' do
-
-    #delete a post by id
-    delete_post = Post.find(params[:id])
-    delete_post.destroy
-
-end
-
-
-
-
-
-post '/posts/:id/edit' do
-
-    #submit a post edit by id
-    post_to_edit = Post.find(params[:id])
-    #assign properties
-    post_to_edit.save
-end
-
-post '/posts/new' do
-    new_post = Post.new
-    #assign properties
-    new_post.save
-
-end
+#
+# get '/posts' do
+#
+#     #show all posts
+#     @posts = Post.all()
+#     erb(:"/posts/show")
+#
+# end
+#
+# get '/posts/:id' do
+#
+#     #show single post by id
+#     @show_post = Post.find(params[:id])
+#     erb(:"/posts/show")
+#
+# end
+#
+# get '/posts/new' do
+#
+#     #create a new post
+#     erb(:"/posts/new")
+#
+# end
+#
+# get '/posts/:id/edit' do
+#
+#     #show edit for for a post by id
+#     @edit_post = Post.find(params[:id])
+#     erb(:"/posts/edit")
+#
+# end
+#
+# get '/posts/:id/delete' do
+#
+#     #delete a post by id
+#     delete_post = Post.find(params[:id])
+#     delete_post.destroy
+#
+# end
+#
+#
+#
+#
+#
+# post '/posts/:id/edit' do
+#
+#     #submit a post edit by id
+#     post_to_edit = Post.find(params[:id])
+#     #assign properties
+#     post_to_edit.save
+# end
+#
+# post '/posts/new' do
+#     new_post = Post.new
+#     #assign properties
+#     new_post.save
+#
+# end

@@ -22,6 +22,6 @@ end
 def thinkific_sso_url(payload)
   url = "http://#{THINKIFIC_SUBDOMAIN}.thinkific.com/api/sso/v2/sso/jwt?jwt=#{payload}"
   # url = "http://#{THINKIFIC_SUBDOMAIN}.thinkific-staging.com/sso/jwt?jwt=#{payload}"
-  # url += "&return_to=http://learning.compliance.world/courses/141724"
+  url += "&return_to=http://localhost:9393/home"
   # url += "&error_url=#{URI.escape(params["error_url"])}" unless params["error_url"].nil?
 end

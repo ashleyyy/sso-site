@@ -4,11 +4,13 @@
 	<form action='/login' method="post">
     	<input type="text" name="email" placeholder="Email Address" data-icon="U">
         <input type="password" name="password" placeholder="Password" data-icon="x">
+				<input type="hidden" name="return_to" value="#{@return_to}">
         <div class="olvido">
-          <div class="olvido">
-            <div class="col"><a href="/signup" title="Ver Carásteres">Register</a></div>
+
               <!-- <div class="col"><a href="#" title="Recuperar Password">Forgot Password?</a></div> -->
-        </div>
-        <input name="submit" type="submit" value="Log In" class="enviar">
+        <input name="submit" type="submit" value="Log In" class="enviar"></div>
+				<div class="olvido"><div class="col">
+				<a href="/signup" title="Ver Carásteres">Need to sign up?</a></div></div>
+
     </form>
 </section>

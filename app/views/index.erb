@@ -9,7 +9,7 @@
 
 <% else %>
 
-<%= erb(:"forms/login_form") %>
+<%= erb(:"forms/login_form", locals: {return_to: @return_to} ) %>
 
 <br/>
 <!--

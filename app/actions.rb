@@ -20,15 +20,10 @@ end
 
 # Homepage (Root path)
 get '/' do
+  @return_to = params['return_to']
   erb :index
 end
 
-get '/' do
-
-
-end
-
-# Homepage (Root path)
 get '/signup' do
   erb :signup
 end

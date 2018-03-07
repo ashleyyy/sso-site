@@ -78,7 +78,8 @@ end
 
 get '/logout' do
     session[:user_id] = nil
-    redirect 'http://#{THINKIFIC_SUBDOMAIN}.thinkific.com/users/sign_out'
+    # redirect 'http://#{THINKIFIC_SUBDOMAIN}.thinkific.com/users/sign_out'
+    redirect '/'
 end
 
 #

@@ -25,5 +25,5 @@ def thinkific_sso_url(payload)
   # url = "http://#{THINKIFIC_SUBDOMAIN}.thinkific-staging.com/sso/jwt?jwt=#{payload}"
   # url += "&return_to=http://localhost:9393/home"
   # url += "&return_to=https://yoursite.thinkific.com/account"
-  # url += "&return_to=#{URI.escape(params["return_to"])}" unless params["return_to"].nil?
+  url += "&return_to=#{URI.escape(params["return_to"])}" unless params["return_to"].nil?
 end

@@ -4,7 +4,7 @@
   <form action='/login' method="post">
     <input type="text" name="email" placeholder="Email Address" data-icon="U">
     <input type="password" name="password" placeholder="Password" data-icon="x">
-    <input type="hidden" name="return_to" value="#{@return_to}">
+    <input type="hidden" name="return_to" value="<%= @return_to %>">
     <div class="olvido">
 
       <!-- <div class="col"><a href="#" title="Recuperar Password">Forgot Password?</a></div> -->

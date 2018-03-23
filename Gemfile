@@ -3,11 +3,12 @@ source "https://rubygems.org"
 
 gem 'rake'
 gem 'activesupport'
-gem 'pg'
+# gem 'pg'
 
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'sinatra-activerecord'
+gem 'sinatra-flash'
 
 gem 'jwt'
 

@@ -1,4 +1,7 @@
+require 'sinatra/flash'
 require_relative 'payload'
+
+enable :sessions
 
 helpers do
     def logged_in?
@@ -61,10 +64,11 @@ end
 post '/login' do
     @user = User.find_by_email(params[:email])
 
-    if @user.password == params[:password]
+    if @user && @user.password == params[:password]
         session[:user_id] = @user.id
         redirect thinkific_sso_url(generate_payload)
     else
+        flash[:notice] = "Sorry, your credentials weren't recognized!"
         redirect '/'
     end
 

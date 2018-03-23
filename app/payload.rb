@@ -1,6 +1,6 @@
 require 'jwt'
-require 'dotenv'
-Dotenv.load
+# require 'dotenv'
+# Dotenv.load
 
 
 SHARED_SECRET = ENV['SHARED_SECRET']

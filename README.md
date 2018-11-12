@@ -1,7 +1,5 @@
-Sinatra
-=============
-
-Brought to you by Lighthouse Labs
+External login site for Thinkific to test SSO feature
+- doesn't encrypt passwords, so if you copy this that's the first think I'd recommend adding. 
 
 ## Getting Started
 

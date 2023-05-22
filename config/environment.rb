@@ -8,6 +8,8 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/contrib/all' # Requires cookies, among other things
 
+require 'dotenv/load'
+
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 APP_NAME = APP_ROOT.basename.to_s
 
@@ -17,7 +19,7 @@ configure do
   set :server, :puma
 
   enable :sessions
-  set :session_secret, ENV['SESSION_KEY'] || 'lighthouselabssecret'
+  set :session_secret, ENV['SESSION_KEY'] || "fbab0134494b33486344d05fd70d98b98f3b35d4bb84336d0679b6bfc7bb1cbb"
 
   set :views, File.join(Sinatra::Application.root, "app", "views")
 end

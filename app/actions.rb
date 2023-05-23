@@ -1,24 +1,20 @@
+# frozen_string_literal: true
+
 require 'sinatra/flash'
 require_relative 'payload'
 
 enable :sessions
 
 helpers do
-    def logged_in?
-        if session[:user_id]
-            true
-        else
-            false
-        end
-    end
+  def logged_in?
+    session[:user_id].present?
+  end
 
-    def user
-        User.find_by_id(session[:user_id])
-    end
+  def user
+    User.find_by_id(session[:user_id])
+  end
 
-    def current_user
-        @current_user
-    end
+  attr_reader :current_user
 end
 
 # Homepage (Root path)
@@ -32,58 +28,49 @@ get '/signup' do
 end
 
 post '/signup' do
-    @user = User.new
-    @user.first_name = params[:first_name]
-    @user.last_name = params[:last_name]
-    @user.email = params[:email]
-    @user.password = params[:password]
+  @user = User.new
+  @user.first_name = params[:first_name]
+  @user.last_name = params[:last_name]
+  @user.email = params[:email]
+  @user.password = params[:password]
 
-    if @user.save
-        @user = User.find_by_email(params[:email])
-        session[:user_id] = @user.id
-        redirect thinkific_sso_url(generate_payload)
-    else
-        erb :index
-    end
+  if @user.save
+    @user = User.find_by_email(params[:email])
+    session[:user_id] = @user.id
+    redirect thinkific_sso_url
+  else
+    erb :index
+  end
 end
 
-
-before '/user/:id' do
-    redirect '/' unless logged_in?
+before '/users/:id' do
+  redirect '/' unless logged_in?
 end
 
-get '/user/:id' do
-
-    @show_user = User.find(params[:id])
-    erb(:"/users/show")
-
+get '/users/:id' do
+  @show_user = User.find(params[:id])
+  erb(:"/users/show")
 end
-
-
 
 post '/login' do
-    @user = User.find_by_email(params[:email])
+  @user = User.find_by_email(params[:email])
 
-    if @user && @user.password == params[:password]
-        session[:user_id] = @user.id
-        redirect thinkific_sso_url(generate_payload)
-    else
-        flash[:notice] = "Sorry, your credentials weren't recognized!"
-        redirect '/'
-    end
-
+  if @user && @user.password == params[:password]
+    session[:user_id] = @user.id
+    redirect thinkific_sso_url
+  else
+    flash[:notice] = "Sorry, your credentials weren't recognized!"
+    redirect '/'
+  end
 end
-
 
 get '/home' do
   erb :home
-    # "GET" https://api.thinkific.com/api/public/v1/enrollments/8605907 -H "X-Auth-API-Key: f71cb2f6b17633fc1295e2c0855fd0f7" -H "X-Auth-Subdomain: ashleyyy" --data "query[user_id]=2619693"
 end
 
 get '/logout' do
-    session[:user_id] = nil
-    redirect "https://#{THINKIFIC_SUBDOMAIN}.thinkific.com/users/sign_out"
-    # redirect '/'
+  session[:user_id] = nil
+  redirect "https://#{THINKIFIC_SUBDOMAIN}.thinkific.com/users/sign_out"
 end
 
 #

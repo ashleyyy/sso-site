@@ -1,5 +1,6 @@
-class CreateBaseTables < ActiveRecord::Migration
+# frozen_string_literal: true
 
+class CreateBaseTables < ActiveRecord::Migration[4.2]
   def change
     create_table :users do |t|
       t.string :first_name
@@ -28,7 +29,5 @@ class CreateBaseTables < ActiveRecord::Migration
       t.references :post
       t.timestamps
     end
-
   end
-
 end

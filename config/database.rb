@@ -1,6 +1,7 @@
+# frozen_string_literal: true
 
 configure :development do
-  ActiveRecord::Base.logger = Logger.new(STDOUT)
+  ActiveRecord::Base.logger = Logger.new($stdout)
 end
 
 configure :development, :test do

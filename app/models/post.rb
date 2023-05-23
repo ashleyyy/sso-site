@@ -1,3 +1,4 @@
-class Post < ActiveRecord::Base
+# frozen_string_literal: true
 
-end 
+class Post < ActiveRecord::Base
+end

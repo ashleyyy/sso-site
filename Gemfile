@@ -1,12 +1,14 @@
-# A sample Gemfile
-source "https://rubygems.org"
+# frozen_string_literal: true
 
-gem 'rake'
+# A sample Gemfile
+source 'https://rubygems.org'
+
 gem 'activesupport'
+gem 'rake'
 
 gem 'sinatra'
-gem 'sinatra-contrib'
 gem 'sinatra-activerecord'
+gem 'sinatra-contrib'
 gem 'sinatra-flash'
 
 gem 'jwt'
@@ -16,10 +18,10 @@ gem 'tux'
 
 # These gems are only installed when run as `bundle install --without production`
 group :development, :test do
+  gem 'dotenv'
   gem 'pry'
   gem 'shotgun'
   gem 'sqlite3'
-  gem 'dotenv'
 end
 
 # bundle install --without test --without development

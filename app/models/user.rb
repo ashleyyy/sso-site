@@ -1,5 +1,7 @@
-class User < ActiveRecord::Base
-    validates :first_name, :last_name, :email, presence: true
+# frozen_string_literal: true
 
-    validates :email, uniqueness: true
+class User < ActiveRecord::Base
+  validates :first_name, :last_name, :email, presence: true
+
+  validates :email, uniqueness: true
 end
